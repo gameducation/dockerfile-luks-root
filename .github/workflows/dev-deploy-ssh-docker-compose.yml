@@ -12,7 +12,7 @@ jobs:
     # if: github.actor == github.event.repository.owner.login
     steps:
     - name: SSH docker-compose pull
-      uses: appleboy/ssh-action@v0.0.2
+      uses: appleboy/ssh-action@v0.0.7
       with:
         host: ${{ secrets.DEV_HOST_IP }}
         username: ec2-user
