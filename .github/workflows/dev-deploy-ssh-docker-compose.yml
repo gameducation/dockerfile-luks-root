@@ -13,9 +13,10 @@ jobs:
     steps:
     - name: SSH docker-compose pull
       uses: appleboy/ssh-action@v0.0.2
-      host: ${{ secrets.DEV_HOST_IP }}
-      username: ec2-user
-      key: ${{ secrets.DEV_SSH_KEY }}
-      script: |
-        docker-compose pull
-        docker-compose up -d stall-spa
+      with:
+        host: ${{ secrets.DEV_HOST_IP }}
+        username: ec2-user
+        key: ${{ secrets.DEV_SSH_KEY }}
+        script: |
+          docker-compose pull
+          docker-compose up -d stall-spa
