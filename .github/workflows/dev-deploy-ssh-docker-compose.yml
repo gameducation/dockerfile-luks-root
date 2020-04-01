@@ -9,7 +9,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    # if: github.actor == github.event.repository.owner.login
+    # if: github.actor == github.event.repository.owner.login      
     steps:
     - name: SSH docker-compose pull
       uses: appleboy/ssh-action@v0.0.7
@@ -17,6 +17,7 @@ jobs:
         host: ${{ secrets.DEV_HOST_IP }}
         username: ec2-user
         key: ${{ secrets.DEV_SSH_KEY }}
+        envs: GITHUB_REPOSITORY
         script: |
           docker-compose pull
-          docker-compose up -d stall-spa
+          docker-compose up -d ${GITHUB_REPOSITORY#*/}
