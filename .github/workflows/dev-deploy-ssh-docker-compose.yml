@@ -11,13 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     # if: github.actor == github.event.repository.owner.login      
     steps:
-    - name: SSH docker-compose pull
-      uses: appleboy/ssh-action@v0.0.7
+    - uses: actions/checkout@master
+    - uses: codecov/codecov-action@v1
       with:
-        host: ${{ secrets.DEV_HOST_IP }}
-        username: ec2-user
-        key: ${{ secrets.DEV_SSH_KEY }}
-        envs: GITHUB_REPOSITORY
-        script: |
-          docker-compose pull
-          docker-compose up -d ${GITHUB_REPOSITORY#*/}
+        token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+        files: ./coverage1.xml,./coverage2.xml # optional
+        flags: unittests # optional
+        name: codecov-umbrella # optional
+        fail_ci_if_error: true # optional (default = false)
+        verbose: true # optional (default = false)
