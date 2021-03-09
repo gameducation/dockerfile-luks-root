@@ -1,4 +1,4 @@
-name: Start action
+name: Star action
 
 on:
         #  push:
@@ -7,12 +7,14 @@ on:
     types: [ started ]
 
 jobs:
-  deploy:
+  testout:
     runs-on: ubuntu-latest
     # if: github.actor == github.event.repository.owner.login      
     steps:
      - run: |
-         echo ::debug::Random link https://ya.ru/test-out
+         echo ::warning::Random link https://ya.ru/test-out
+         echo "::warning::My warning message"
+
 #    - uses: actions/checkout@master
 #    - uses: codecov/codecov-action@v1
 #      with:
