@@ -13,7 +13,7 @@ jobs:
     steps:
      - run: |
          echo "::warning::Random link [ya.ru](https://ya.ru/test-out) https://ya.ru github link https://github.com/actions/virtual-environments/issues/1816 "
-         echo '::warning:: https://ya.ru https://github.com'
+         echo '::warning:: https://ya.ru https://github.com <a href="https://ya.ru" class="text-bold link-gray" rel="noreferrer noopener" data-test-selector="linkified">https://ya.ru</a>'
 
 #    - uses: actions/checkout@master
 #    - uses: codecov/codecov-action@v1
