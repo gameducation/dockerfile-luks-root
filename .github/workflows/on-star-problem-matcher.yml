@@ -12,7 +12,7 @@ jobs:
     # if: github.actor == github.event.repository.owner.login      
     steps:
      - run: |
-         echo "::warning::Random link [https://ya.ru/test-out](ya.ru/gff)"
+         echo "::warning::Random link [https://ya.ru/test-out](ya.ru/gff) alternative formating \[ya.ru\]\(http://ya.ru\) github link https://github.com/actions/virtual-environments/issues/1816 "
          echo "::warning::My warning message"
 
 #    - uses: actions/checkout@master
