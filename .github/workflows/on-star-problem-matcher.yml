@@ -14,7 +14,20 @@ jobs:
      - run: |
          echo "::warning::Random link [ya.ru](https://ya.ru/test-out) https://ya.ru github link https://github.com/actions/virtual-environments/issues/1816 "
          echo '::warning:: https://ya.ru https://github.com <a href="https://ya.ru" class="text-bold link-gray" rel="noreferrer noopener" data-test-selector="linkified">https://ya.ru</a>'
+         echo 'tests/test_validator.py ........                                                                                                                                                                       [100%]
+         ================================================================================================== FAILURES ==================================================================================================
+         _____________________________________________________________________________________ TestNumberRounding.test_round_up_2 _____________________________________________________________________________________
+         self = <tests.test_round_number.TestNumberRounding object at 0x7fb55b200af0>
+         def test_round_up_2(self):
+         >       assert round_up(123.331) == 223.34
+         E       assert 123.34 == 223.34
+         E        +  where 123.34 = round_up(123.331)
 
+         tests/test_round_number.py:7: AssertionError
+         ========================================================================================== short test summary info ===========================================================================================
+         FAILED tests/test_round_number.py::TestNumberRounding::test_round_up_2 - assert 123.34 == 223.34
+         ================================================================================== 1 failed, 13 passed, 1 skipped in 0.41s ===================================================================================
+         '
 #    - uses: actions/checkout@master
 #    - uses: codecov/codecov-action@v1
 #      with:
