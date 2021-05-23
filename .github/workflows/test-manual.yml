@@ -1,0 +1,17 @@
+name: test
+
+on: [workflow_dispatch]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy test Job to DEV platform
+      id: deploy-dev-job
+      uses: gvych/eks-kubectl-action@1.3
+      with:
+        aws_access_key_id: ${{ secrets.DEV_AWS_ACCESS_KEY_ID }}
+        aws_secret_access_key: ${{ secrets.DEV_AWS_SECRET_ACCESS_KEY }}
+        aws_region: ${{ secrets.DEV_AWS_REGION }}
+        cluster_name: ${{ secrets.DEV_CLUSTER_NAME }}
+        args: version
